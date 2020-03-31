@@ -1,0 +1,22 @@
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">City</th>
+    <th scope="col">Description</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of cities">
+    <td scope="row">{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.description}}</td>
+    <td><button class="btn btn-dark" (click)="deleteCity(item.id)">delete</button></td>
+    <td><button class="btn btn-dark" (click)="updateCity(item.id)">update</button></td>
+  </tr>
+  </tbody>
+</table>
+<ngb-pagination [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="7" [rotate]="true"
+                (pageChange)="loadPage($event)"></ngb-pagination>

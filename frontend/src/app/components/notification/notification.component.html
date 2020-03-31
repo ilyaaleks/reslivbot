@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Add post</h2>
+<div class="d-flex flex-row bd-highlight mb-3" style="overflow:hidden auto; height: auto">
+  <form [formGroup]="postForm">
+    <div class="input-group p-1">
+      <div class="input-group p-1">
+        <textarea class="form-control" formControlName="description" style="resize:none" placeholder="description" rows="3"></textarea>
+      </div>
+      <div class="input-group p-1">
+        <input type="text" formControlName="name" class="form-control" placeholder="name" aria-label="Email"
+               aria-describedby="basic-addon3">
+      </div>
+    </div>
+    <div class="alert alert-danger"
+         *ngIf="postForm.controls['name'].invalid && postForm.controls['name'].touched">
+      Required field
+    </div>
+    <div class=" p-1">
+      <button *ngIf="postForm.valid && data===null" class="btn btn-info btn-block"  mat-button [mat-dialog-close]="true" (click)="addCity()">Add city</button>
+      <button *ngIf="!postForm.valid" disabled="disabled" class="btn btn-dark btn-block">Add city</button>
+      <button *ngIf="postForm.valid && data!==null" class="btn btn-info btn-block"  mat-button [mat-dialog-close]="true" (click)="addCity()">Update</button>
+    </div>
+  </form>
+</div>
